@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.saveContext()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -46,6 +47,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
+    lazy var applicationDocumentsDirectory: NSURL = {
+       let urls = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
+        return urls[urls.count-1] as NSURL
+    }()
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        let modelURL = Bundle.main.url(forResource: "BankNote", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+    
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+        var fileManager = FileManager.default
+        var storeURL = self.applicationDocumentsDirectory.appendingPathComponent("DataModel.sqlite")!
+        
+        if fileManager.fileExists(atPath: storeURL.path) {
+            var defaultStoreURL = Bundle.main.url(forResource: "BankNote", withExtension: "momd")
+            if defaultStoreURL != nil {
+                do {
+                    try fileManager.copyItem(at: defaultStoreURL!, to: storeURL)
+                }catch {
+                    print("Load store url failed")
+                }
+                
+            }
+        }
+        
+        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        do {
+            try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
+        }catch {
+            coordinator = nil
+            print("PersostentStoreCoordinator init failed")
+        }
+        return coordinator
+    }()
+    
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -53,12 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
+        
         let container = NSPersistentContainer(name: "BankNote")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -73,6 +112,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    lazy var managedObjectContext: NSManagedObjectContext? = {
+        let coordinator = self.persistentStoreCoordinator
+        if coordinator == nil {
+            return nil
+        }
+        
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {

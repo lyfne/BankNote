@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		DA16C8031F5C41BA00BA3CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8021F5C41BA00BA3CB7 /* AppDelegate.swift */; };
 		DA16C8051F5C41BA00BA3CB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8041F5C41BA00BA3CB7 /* ViewController.swift */; };
-		DA16C8081F5C41BA00BA3CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA16C8061F5C41BA00BA3CB7 /* Main.storyboard */; };
 		DA16C80B1F5C41BA00BA3CB7 /* BankNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8091F5C41BA00BA3CB7 /* BankNote.xcdatamodeld */; };
 		DA16C80D1F5C41BA00BA3CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA16C80C1F5C41BA00BA3CB7 /* Assets.xcassets */; };
 		DA16C8101F5C41BA00BA3CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA16C80E1F5C41BA00BA3CB7 /* LaunchScreen.storyboard */; };
+		DA16C81C1F5C426E00BA3CB7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8181F5C426E00BA3CB7 /* DataController.swift */; };
+		DA16C81D1F5C426E00BA3CB7 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8191F5C426E00BA3CB7 /* TextScanner.swift */; };
+		DA16C81E1F5C426E00BA3CB7 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C81A1F5C426E00BA3CB7 /* Calculator.swift */; };
+		DA16C8241F5C42A900BA3CB7 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8211F5C42A800BA3CB7 /* NewNoteViewController.swift */; };
+		DA16C8251F5C42A900BA3CB7 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8221F5C42A800BA3CB7 /* ReportViewController.swift */; };
+		DA16C8261F5C42A900BA3CB7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */; };
+		DA16C8281F5C430900BA3CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA16C8271F5C430900BA3CB7 /* Main.storyboard */; };
+		DA16C8321F5C4E1600BA3CB7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8311F5C4E1600BA3CB7 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA16C7FF1F5C41BA00BA3CB7 /* BankNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA16C8021F5C41BA00BA3CB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA16C8041F5C41BA00BA3CB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA16C8071F5C41BA00BA3CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA16C80A1F5C41BA00BA3CB7 /* BankNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankNote.xcdatamodel; sourceTree = "<group>"; };
 		DA16C80C1F5C41BA00BA3CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA16C80F1F5C41BA00BA3CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA16C8111F5C41BA00BA3CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA16C8181F5C426E00BA3CB7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		DA16C8191F5C426E00BA3CB7 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
+		DA16C81A1F5C426E00BA3CB7 /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		DA16C8211F5C42A800BA3CB7 /* NewNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
+		DA16C8221F5C42A800BA3CB7 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		DA16C8271F5C430900BA3CB7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DA16C8311F5C4E1600BA3CB7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,38 @@
 		DA16C8011F5C41BA00BA3CB7 /* BankNote */ = {
 			isa = PBXGroup;
 			children = (
+				DA16C8201F5C427A00BA3CB7 /* ViewController */,
+				DA16C8171F5C426300BA3CB7 /* Model */,
 				DA16C8021F5C41BA00BA3CB7 /* AppDelegate.swift */,
-				DA16C8041F5C41BA00BA3CB7 /* ViewController.swift */,
-				DA16C8061F5C41BA00BA3CB7 /* Main.storyboard */,
+				DA16C8271F5C430900BA3CB7 /* Main.storyboard */,
 				DA16C80C1F5C41BA00BA3CB7 /* Assets.xcassets */,
 				DA16C80E1F5C41BA00BA3CB7 /* LaunchScreen.storyboard */,
 				DA16C8111F5C41BA00BA3CB7 /* Info.plist */,
 				DA16C8091F5C41BA00BA3CB7 /* BankNote.xcdatamodeld */,
 			);
 			path = BankNote;
+			sourceTree = "<group>";
+		};
+		DA16C8171F5C426300BA3CB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA16C8311F5C4E1600BA3CB7 /* Note.swift */,
+				DA16C8181F5C426E00BA3CB7 /* DataController.swift */,
+				DA16C8191F5C426E00BA3CB7 /* TextScanner.swift */,
+				DA16C81A1F5C426E00BA3CB7 /* Calculator.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DA16C8201F5C427A00BA3CB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA16C8211F5C42A800BA3CB7 /* NewNoteViewController.swift */,
+				DA16C8221F5C42A800BA3CB7 /* ReportViewController.swift */,
+				DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */,
+				DA16C8041F5C41BA00BA3CB7 /* ViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +136,7 @@
 				TargetAttributes = {
 					DA16C7FE1F5C41BA00BA3CB7 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = WGBBQCAC9Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -126,9 +164,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA16C8281F5C430900BA3CB7 /* Main.storyboard in Resources */,
 				DA16C8101F5C41BA00BA3CB7 /* LaunchScreen.storyboard in Resources */,
 				DA16C80D1F5C41BA00BA3CB7 /* Assets.xcassets in Resources */,
-				DA16C8081F5C41BA00BA3CB7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,23 +177,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA16C8261F5C42A900BA3CB7 /* CalculatorViewController.swift in Sources */,
 				DA16C8051F5C41BA00BA3CB7 /* ViewController.swift in Sources */,
+				DA16C81C1F5C426E00BA3CB7 /* DataController.swift in Sources */,
 				DA16C80B1F5C41BA00BA3CB7 /* BankNote.xcdatamodeld in Sources */,
+				DA16C81D1F5C426E00BA3CB7 /* TextScanner.swift in Sources */,
+				DA16C8321F5C4E1600BA3CB7 /* Note.swift in Sources */,
+				DA16C8251F5C42A900BA3CB7 /* ReportViewController.swift in Sources */,
+				DA16C8241F5C42A900BA3CB7 /* NewNoteViewController.swift in Sources */,
 				DA16C8031F5C41BA00BA3CB7 /* AppDelegate.swift in Sources */,
+				DA16C81E1F5C426E00BA3CB7 /* Calculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA16C8061F5C41BA00BA3CB7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA16C8071F5C41BA00BA3CB7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA16C80E1F5C41BA00BA3CB7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -264,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGBBQCAC9Y;
 				INFOPLIST_FILE = BankNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivan.lin.BankNote;
@@ -276,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGBBQCAC9Y;
 				INFOPLIST_FILE = BankNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ivan.lin.BankNote;
