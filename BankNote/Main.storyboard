@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="PS4-R9-doM">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="bAs-Rm-eJh" customClass="ViewController" customModule="Daily_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="bAs-Rm-eJh" customClass="ViewController" customModule="BankNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h4P-WQ-2Zs"/>
                         <viewControllerLayoutGuide type="bottom" id="JV2-Gv-1hp"/>
@@ -37,10 +37,48 @@
                                     <segue destination="iIT-c0-So6" kind="show" identifier="toNewIncome" id="FDz-5v-sIM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMJ-Hn-JHk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMJ-Hn-JHk">
                                 <rect key="frame" x="0.0" y="186" width="375" height="481"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" rowHeight="112" id="1zH-uy-xln" customClass="NoteCell" customModule="BankNote" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="112"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1zH-uy-xln" id="jNe-cW-4LC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz4-IW-WDL">
+                                                    <rect key="frame" x="8" y="8" width="359" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WN-oJ-LqE">
+                                                    <rect key="frame" x="8" y="49" width="122" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KU7-ER-WNd">
+                                                    <rect key="frame" x="199" y="49" width="168" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="KU7-ER-WNd" id="g6T-X2-llP"/>
+                                            <outlet property="dateLabel" destination="Cz4-IW-WDL" id="ZM3-CV-Bc9"/>
+                                            <outlet property="typeLabel" destination="3WN-oJ-LqE" id="fsk-IW-OkG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-Db-TnJ">
                                 <rect key="frame" x="321" y="36" width="31" height="30"/>
@@ -85,6 +123,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="assetTextField" destination="C16-Qh-Y3s" id="nff-Ci-INd"/>
+                        <outlet property="bankNoteTableView" destination="GMJ-Hn-JHk" id="eK5-ZH-5kR"/>
                         <segue destination="yPq-Ik-NV0" kind="show" identifier="toReport" id="Cfe-Zp-kqt"/>
                         <segue destination="iIT-c0-So6" kind="show" identifier="toNewNote" id="3A9-1P-8TW"/>
                     </connections>
@@ -112,7 +151,7 @@
         <!--Report-->
         <scene sceneID="OOr-c0-ZEb">
             <objects>
-                <viewController storyboardIdentifier="ReportViewController" title="Report" id="yPq-Ik-NV0" customClass="ReportViewController" customModule="Daily_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReportViewController" title="Report" id="yPq-Ik-NV0" customClass="ReportViewController" customModule="BankNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lua-Q1-EAK"/>
                         <viewControllerLayoutGuide type="bottom" id="86T-ci-xTv"/>
@@ -132,7 +171,7 @@
         <!--New Note-->
         <scene sceneID="ywu-Aw-TMQ">
             <objects>
-                <viewController storyboardIdentifier="NewNoteViewController" title="New Note" id="iIT-c0-So6" customClass="NewNoteViewController" customModule="Daily_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewNoteViewController" title="New Note" id="iIT-c0-So6" customClass="NewNoteViewController" customModule="BankNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vV8-Lu-90I"/>
                         <viewControllerLayoutGuide type="bottom" id="Iwq-hM-tg0"/>
@@ -177,7 +216,7 @@
         <!--Calculator View Controller-->
         <scene sceneID="rP4-Mf-s2T">
             <objects>
-                <viewController storyboardIdentifier="CalculatorViewController" id="GBK-9W-hU6" customClass="CalculatorViewController" customModule="Daily_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalculatorViewController" id="GBK-9W-hU6" customClass="CalculatorViewController" customModule="BankNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YnQ-yn-JpC"/>
                         <viewControllerLayoutGuide type="bottom" id="EdW-uL-0Tj"/>
@@ -334,7 +373,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5Kb-lR-bjU"/>
         <segue reference="Cfe-Zp-kqt"/>
+        <segue reference="3A9-1P-8TW"/>
     </inferredMetricsTieBreakers>
 </document>

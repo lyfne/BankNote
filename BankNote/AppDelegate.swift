@@ -46,43 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
-    lazy var applicationDocumentsDirectory: NSURL = {
-       let urls = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
-        return urls[urls.count-1] as NSURL
-    }()
-    
-    lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: "BankNote", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
-    }()
-    
-    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
-        var fileManager = FileManager.default
-        var storeURL = self.applicationDocumentsDirectory.appendingPathComponent("DataModel.sqlite")!
-        
-        if fileManager.fileExists(atPath: storeURL.path) {
-            var defaultStoreURL = Bundle.main.url(forResource: "BankNote", withExtension: "momd")
-            if defaultStoreURL != nil {
-                do {
-                    try fileManager.copyItem(at: defaultStoreURL!, to: storeURL)
-                }catch {
-                    print("Load store url failed")
-                }
-                
-            }
-        }
-        
-        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        do {
-            try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
-        }catch {
-            coordinator = nil
-            print("PersostentStoreCoordinator init failed")
-        }
-        return coordinator
-    }()
-    
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -110,17 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         return container
-    }()
-
-    lazy var managedObjectContext: NSManagedObjectContext? = {
-        let coordinator = self.persistentStoreCoordinator
-        if coordinator == nil {
-            return nil
-        }
-        
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
-        managedObjectContext.persistentStoreCoordinator = coordinator
-        return managedObjectContext
     }()
     
     // MARK: - Core Data Saving support

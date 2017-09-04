@@ -9,14 +9,21 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+let CellID = "NoteCell"
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var assetTextField: UITextField!
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    @IBOutlet weak var bankNoteTableView: UITableView!
+    let m_context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var notes: [Note] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        getData()
+        bankNoteTableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -26,6 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +50,46 @@ class ViewController: UIViewController {
                 toVC.m_isIncome = false
             }
         }
+    }
+    
+    func initTableView() {
+        bankNoteTableView.delegate = self
+        bankNoteTableView.dataSource = self
+    }
+    
+    func getData() {
+        do {
+            notes = try m_context.fetch(Note.fetchRequest())
+        }
+        catch {
+            print("Fetching Failed")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: NoteCell?
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: CellID) as? NoteCell
+        
+        if cell == nil {
+            cell = NoteCell()
+        }
+        
+        let note = notes[indexPath.row]
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateStr = formatter.string(from: note.date! as Date)
+        
+        cell?.dateLabel.text = dateStr
+        cell?.typeLabel.text = note.type
+        cell?.amountLabel.text = "\(note.amount)"
+        
+        return cell!
     }
 }
 

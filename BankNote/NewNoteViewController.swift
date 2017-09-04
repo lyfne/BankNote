@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension Double {
     func roundTo(places: Int) -> Double {
@@ -15,13 +16,15 @@ extension Double {
     }
 }
 
+let InitialValue = -99999.9
+
 class NewNoteViewController: UIViewController {
 
     let m_textScanner = TextScanner()
     let m_calculator = Calculator()
-    var m_amount = 0.0
+    var m_amount = InitialValue
     var m_isIncome = false
-    let m_note = Note()
+    var m_date: Date?
     
     @IBOutlet weak var resultLabel: UILabel!
     
@@ -36,7 +39,6 @@ class NewNoteViewController: UIViewController {
         }else {
             self.title = "New Expend"
         }
-        m_note.is_income = m_isIncome
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,8 +106,31 @@ class NewNoteViewController: UIViewController {
     }
     
     @IBAction func saveNote(_ sender: UIBarButtonItem) {
-        m_note.amount = m_amount
+        
+        if m_amount == -99999.9 {
+            m_amount = Double(resultLabel.text!)!
+        }
+        
+        if m_amount <= 0 {
+            return
+        }
+        
+        if m_date == nil {
+            m_date = Date()
+        }
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let newNote = Note(context: context)
+        newNote.is_income = m_isIncome
+        newNote.type = "Food"
+        newNote.date = m_date as NSDate?
+        newNote.amount = m_amount
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        self.navigationController?.popViewController(animated: true)
     }
+    
     /*
     // MARK: - Navigation
 
