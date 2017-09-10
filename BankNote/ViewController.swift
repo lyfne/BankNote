@@ -13,14 +13,19 @@ let CellID = "NoteCell"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var assetTextField: UITextField!
+    @IBOutlet weak var assetLabel: UILabel!
     @IBOutlet weak var bankNoteTableView: UITableView!
+    
     let m_context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let m_assetManager = AssetManager.defaultManager
     var notes: [Note] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        let asset = m_assetManager.getTotalAsset()
+        assetLabel.text = "\(asset)"
         
         getData()
         bankNoteTableView.reloadData()
@@ -33,6 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initTableView()
     }
     
@@ -50,6 +56,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 toVC.m_isIncome = false
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(false)
     }
     
     func initTableView() {
@@ -88,6 +98,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.dateLabel.text = dateStr
         cell?.typeLabel.text = note.type
         cell?.amountLabel.text = "\(note.amount)"
+        
+        if note.is_income {
+            cell?.backgroundColor = UIColor.green
+        }else {
+            cell?.backgroundColor = UIColor.red
+        }
         
         return cell!
     }

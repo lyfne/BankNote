@@ -22,9 +22,11 @@ class NewNoteViewController: UIViewController {
 
     let m_textScanner = TextScanner()
     let m_calculator = Calculator()
+    let m_assetManager = AssetManager.defaultManager
     var m_amount = InitialValue
     var m_isIncome = false
     var m_date: Date?
+    var totals: [Total] = []
     
     @IBOutlet weak var resultLabel: UILabel!
     
@@ -127,6 +129,16 @@ class NewNoteViewController: UIViewController {
         newNote.amount = m_amount
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        
+        var asset = m_assetManager.getTotalAsset()
+        if m_isIncome {
+            asset += m_amount
+        }else {
+            asset -= m_amount
+        }
+        
+        m_assetManager.setTotalAsset(asset: asset)
         
         self.navigationController?.popViewController(animated: true)
     }

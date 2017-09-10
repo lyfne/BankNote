@@ -19,6 +19,8 @@
 		DA16C8261F5C42A900BA3CB7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */; };
 		DA16C8281F5C430900BA3CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA16C8271F5C430900BA3CB7 /* Main.storyboard */; };
 		DA73FFD71F5D8C8100C58764 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73FFD61F5D8C8100C58764 /* NoteCell.swift */; };
+		DAD846F11F65671D00D0735B /* MyAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD846F01F65671D00D0735B /* MyAssetViewController.swift */; };
+		DAD846F31F656B5B00D0735B /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD846F21F656B5B00D0735B /* AssetManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		DA16C8271F5C430900BA3CB7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA73FFD61F5D8C8100C58764 /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		DAD846F01F65671D00D0735B /* MyAssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssetViewController.swift; sourceTree = "<group>"; };
+		DAD846F21F656B5B00D0735B /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				DA16C8191F5C426E00BA3CB7 /* TextScanner.swift */,
 				DA16C81A1F5C426E00BA3CB7 /* Calculator.swift */,
+				DAD846F21F656B5B00D0735B /* AssetManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 				DA16C8221F5C42A800BA3CB7 /* ReportViewController.swift */,
 				DA16C8231F5C42A900BA3CB7 /* CalculatorViewController.swift */,
 				DA16C8041F5C41BA00BA3CB7 /* ViewController.swift */,
+				DAD846F01F65671D00D0735B /* MyAssetViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 				DA73FFD71F5D8C8100C58764 /* NoteCell.swift in Sources */,
 				DA16C8031F5C41BA00BA3CB7 /* AppDelegate.swift in Sources */,
 				DA16C81E1F5C426E00BA3CB7 /* Calculator.swift in Sources */,
+				DAD846F11F65671D00D0735B /* MyAssetViewController.swift in Sources */,
+				DAD846F31F656B5B00D0735B /* AssetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
